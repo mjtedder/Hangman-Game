@@ -4,14 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hangman Game</title>
-  <!--Reset CSS-->
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <!--Google Font-->
+  <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!--Linking CSS-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
+  <div class="row">
+  <div class="col-lg-6">
+    <img src="assets/images/supermariojapanese.png" height="400" width="400"></img>
+</div>
+<div class="col-lg-6">
+    <h1 class="header">SUPER MARIO HANGMAN!</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="box" id="resultsArea">
 
-  <h1>Stay tuned for a fun Mario-themed game of Hangman!</h1>
+    </div>
+    <div class="box" id="wordArea">
+
+    </div>
+    <div class="box" id="guessesLeftArea">
+      <h3>Guesses Left:</h3>
+      <p id="guessLeft"></p>
+    </div>
+    <div class="box" id="guessesMadeArea">
+      <h3>Guesses Made:</h3>
+      <p id="guessesMade"></p>
+    </div>
+    <div class="box" id="winsArea">
+      <h3>Wins:</h3>
+      <p id="wins"></p>
+    </div>
+    <div class="box" id="lossesArea">
+      <p id="losses"></p>
+      <h3>Losses:</h3>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
