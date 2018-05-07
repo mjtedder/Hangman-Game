@@ -36,115 +36,118 @@ function startGame() {
   // Solution is chosen randomly from wordList.
   chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
   // The word is broken into individual letters.
-  lettersInChosenWord = chosenWord.split(" ");
-  console.log(lettersInChosenWord);
+  lettersInChosenWord = chosenWord.split("");
+
+  // We count the number of letters in the word.
+  blanks = lettersInChosenWord.length;
+
+  // We print the solution in console (for testing).
+  console.log(chosenWord);
+
+  // CRITICAL LINE - Here we *reset* the guess and success array at each round.
+  blanksAndSuccesses = [];
+
+  // CRITICAL LINE - Here we *reset* the wrong guesses from the previous round.
+  wrongGuesses = [];
+
+  // Fill up the blanksAndSuccesses list with appropriate number of blanks.
+  // This is based on number of letters in solution.
+  for (var i = 0; i < blanks; i++) {
+    blanksAndSuccesses.push("_");
+  }
+
+  // Print the initial blanks in console.
+  console.log(blanksAndSuccesses);
+
+
+  // Reprints the guessesLeft to 9
+  document.getElementById("guessLeft").innerHTML = guessCount;
+
+  // Prints the blanks at the beginning of each round in the HTML
+  document.getElementById("resultsArea").innerHTML = blanksAndSuccesses.join(" ");
+
+  // Clears the wrong guesses from the previous round
+  document.getElementById("guessesMade").innerHTML = wrongGuesses.join(" ");
 }
-// We count the number of letters in the word.
-  startGame();
+startGame();
+  // checkLetters() function
+  // It's where we will do all of the comparisons for matches.
+  // Again, it's not being called here. It's just being made for future use.
 
-// We print the solution in console (for testing).
 
+  // This boolean will be toggled based on whether or not a user letter is found anywhere in the word.
 
-// CRITICAL LINE - Here we *reset* the guess and success array at each round.
 
-// CRITICAL LINE - Here we *reset* the wrong guesses from the previous round.
+  // Check if a letter exists inside the array at all.
 
 
-// Fill up the blanksAndSuccesses list with appropriate number of blanks.
-// This is based on number of letters in solution.
+  // If the letter exists then toggle this boolean to true. This will be used in the next step.
 
 
-// Print the initial blanks in console.
 
 
+  // If the letter exists somewhere in the word, then figure out exactly where (which indices).
 
-// Reprints the guessesLeft to 9
 
+  // Loop through the word.
 
-// Prints the blanks at the beginning of each round in the HTML
 
+  // Populate the blanksAndSuccesses with every instance of the letter.
 
-// Clears the wrong guesses from the previous round
+  // Here we set the specific space in blanks and letter equal to the letter when there is a match.
 
+  // Logging for testing.
 
-// checkLetters() function
-// It's where we will do all of the comparisons for matches.
-// Again, it's not being called here. It's just being made for future use.
+  // If the letter doesn't exist at all..
 
+  // ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
 
-// This boolean will be toggled based on whether or not a user letter is found anywhere in the word.
 
+  // roundComplete() function
+  // Here we will have all of the code that needs to be run after each guess is made
 
-// Check if a letter exists inside the array at all.
 
+  // First, log an initial status update in the console telling us how many wins, losses, and guesses are left.
 
-// If the letter exists then toggle this boolean to true. This will be used in the next step.
 
+  // Update the HTML to reflect the new number of guesses. Also update the correct guesses.
 
+  // This will print the array of guesses and blanks onto the page.
 
+  // This will print the wrong guesses onto the page.
 
-// If the letter exists somewhere in the word, then figure out exactly where (which indices).
 
+  // If we have gotten all the letters to match the solution...
 
-// Loop through the word.
+  // ..add to the win counter & give the user an alert.
 
 
-// Populate the blanksAndSuccesses with every instance of the letter.
 
-// Here we set the specific space in blanks and letter equal to the letter when there is a match.
+  // Update the win counter in the HTML & restart the game.
 
-// Logging for testing.
 
-// If the letter doesn't exist at all..
+  // If we've run out of guesses..
 
-// ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
+  // Add to the loss counter.
 
+  // Give the user an alert.
 
-// roundComplete() function
-// Here we will have all of the code that needs to be run after each guess is made
 
+  // Update the loss counter in the HTML.
 
-// First, log an initial status update in the console telling us how many wins, losses, and guesses are left.
+  // Restart the game.
 
 
-// Update the HTML to reflect the new number of guesses. Also update the correct guesses.
+  // MAIN PROCESS (THIS IS THE CODE THAT CONTROLS WHAT IS ACTUALLY RUN)
+  // ==================================================================================================
 
-// This will print the array of guesses and blanks onto the page.
+  // Starts the Game by running the startGame() function
 
-// This will print the wrong guesses onto the page.
 
+  // Then initiate the function for capturing key clicks.
 
-// If we have gotten all the letters to match the solution...
+  // Converts all key clicks to lowercase letters.
 
-// ..add to the win counter & give the user an alert.
+  // Runs the code to check for correctness.
 
-
-
-// Update the win counter in the HTML & restart the game.
-
-
-// If we've run out of guesses..
-
-// Add to the loss counter.
-
-// Give the user an alert.
-
-
-// Update the loss counter in the HTML.
-
-// Restart the game.
-
-
-// MAIN PROCESS (THIS IS THE CODE THAT CONTROLS WHAT IS ACTUALLY RUN)
-// ==================================================================================================
-
-// Starts the Game by running the startGame() function
-
-
-// Then initiate the function for capturing key clicks.
-
-// Converts all key clicks to lowercase letters.
-
-// Runs the code to check for correctness.
-
-// Runs the code after each round is done.
+  // Runs the code after each round is done.
