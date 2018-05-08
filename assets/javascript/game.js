@@ -69,85 +69,100 @@ function startGame() {
   // Clears the wrong guesses from the previous round
   document.getElementById("guessesMade").innerHTML = wrongGuesses.join(" ");
 }
-startGame();
-  // checkLetters() function
-  // It's where we will do all of the comparisons for matches.
-  // Again, it's not being called here. It's just being made for future use.
-
+// checkLetters() function
+// It's where we will do all of the comparisons for matches.
+// Again, it's not being called here. It's just being made for future use.
+function checkLetters(letter) {
 
   // This boolean will be toggled based on whether or not a user letter is found anywhere in the word.
-
+  var letterInWord = false;
 
   // Check if a letter exists inside the array at all.
+  for (var i = 0; i < blanks; i++) {
+    if (chosenWord[i] === letter) {
 
-
-  // If the letter exists then toggle this boolean to true. This will be used in the next step.
-
-
-
+      // If the letter exists then toggle this boolean to true. This will be used in the next step.
+      letterInWord = true;
+    }
+  }
 
   // If the letter exists somewhere in the word, then figure out exactly where (which indices).
+  if (letterInWord) {
 
+    // Loop through the word.
+    for (var j = 0; j < blanks; j++) {
 
-  // Loop through the word.
+      // Populate the blanksAndSuccesses with every instance of the letter.
+      if (chosenWord[j] === letter) {
+        // Here we set the specific space in blanks and letter equal to the letter when there is a match.
+        blanksAndSuccesses[j] = letter;
+      }
+    }
 
-
-  // Populate the blanksAndSuccesses with every instance of the letter.
-
-  // Here we set the specific space in blanks and letter equal to the letter when there is a match.
-
-  // Logging for testing.
-
+    // Logging for testing.
+    console.log(blanksAndSuccesses);
+  }
   // If the letter doesn't exist at all..
+  else {
+    // ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
+    wrongGuesses.push(letter);
+    guessCount--;
+  }
+}
 
-  // ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
-
-
-  // roundComplete() function
-  // Here we will have all of the code that needs to be run after each guess is made
-
+// roundComplete() function
+// Here we will have all of the code that needs to be run after each guess is made
+function roundComplete() {
 
   // First, log an initial status update in the console telling us how many wins, losses, and guesses are left.
-
+  console.log("Wins: " + wins + " | Losses: " + losses + " | GuessCount: " + guessCount);
 
   // Update the HTML to reflect the new number of guesses. Also update the correct guesses.
+  document.getElementById("guessLeft").innerHTML = guessCount;
 
   // This will print the array of guesses and blanks onto the page.
+  document.getElementById("resultsArea").innerHTML = blanksAndSuccesses.join(" ");
 
   // This will print the wrong guesses onto the page.
-
+  document.getElementById("guessesMade").innerHTML = wrongGuesses.join(" ");
 
   // If we have gotten all the letters to match the solution...
+  if (lettersInChosenWord.toString() === blanksAndSuccesses.toString()) {
+    // ..add to the win counter & give the user an alert.
+    wins++;
+    alert("Mama Mia! You win!");
 
-  // ..add to the win counter & give the user an alert.
 
-
-
-  // Update the win counter in the HTML & restart the game.
-
+    // Update the win counter in the HTML & restart the game.
+    document.getElementById("wins").innerHTML = wins;
+    startGame();
+  }
 
   // If we've run out of guesses..
+  else if (guessCount === 0) {
+    // Add to the loss counter.
+    losses++;
+    // Give the user an alert.
+    alert("Whaaaa!  You lose!");
 
-  // Add to the loss counter.
+    // Update the loss counter in the HTML.
+    document.getElementById("losses").innerHTML = losses;
+    // Restart the game.
+    startGame();
+  }
+}
+// MAIN PROCESS (THIS IS THE CODE THAT CONTROLS WHAT IS ACTUALLY RUN)
+// ==================================================================================================
 
-  // Give the user an alert.
+// Starts the Game by running the startGame() function
+  startGame();
 
-
-  // Update the loss counter in the HTML.
-
-  // Restart the game.
-
-
-  // MAIN PROCESS (THIS IS THE CODE THAT CONTROLS WHAT IS ACTUALLY RUN)
-  // ==================================================================================================
-
-  // Starts the Game by running the startGame() function
-
-
-  // Then initiate the function for capturing key clicks.
-
-  // Converts all key clicks to lowercase letters.
-
-  // Runs the code to check for correctness.
-
-  // Runs the code after each round is done.
+// Then initiate the function for capturing key clicks.
+  document.onkeyup = function(event) {
+// Converts all key clicks to lowercase letters.
+  var letterGuessed = String.fromCharCode(event.which).toLowerCase();
+// Runs the code to check for correctness.
+  checkLetters(letterGuessed);
+// Runs the code after each round is done.
+  roundComplete();
+};
