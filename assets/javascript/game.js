@@ -69,6 +69,7 @@ function startGame() {
   // Clears the wrong guesses from the previous round
   document.getElementById("guessesMade").innerHTML = wrongGuesses.join(" ");
 }
+
 // checkLetters() function
 // It's where we will do all of the comparisons for matches.
 // Again, it's not being called here. It's just being made for future use.
