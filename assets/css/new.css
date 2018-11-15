@@ -8,11 +8,12 @@ body {
     min-height: 100%;
     box-sizing: inherit;
     position: relative;
-    background-image: url('../images/background.png');
-    background-size: 100%;
+    background-image: url('../images/graygradient.jpg');
+    background-size: 200%;
     color: white;
     text-align: center;
-    font-family: 'Spicy Rice', cursive;
+    font-family: 'Bangers', cursive;
+    font-size: 24px;
 }
 
 
@@ -32,7 +33,7 @@ img {
 #guesesLeft,
 #currentGuess {
 
-    color: #b1604b;
+    color: #e84500;
 }
 
 .buttonArea {
@@ -43,15 +44,15 @@ img {
     padding: 10px 5px;
     margin: 10px;
     font-size: 20px;
-    font-family: 'Spicy Rice', cursive;
+    font-family: 'Bangers', cursive;
     margin-left: auto;
     margin-right: auto;
 }
 
 .gameButton:hover {
-    background-color: #b1604b;
+    background-color: #e84500;
     border: none;
-    font-family: 'Spicy Rice', cursive;
+    font-family: 'Bangers', cursive;
 }
 
 footer {
@@ -59,7 +60,6 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: black;
-    color: #b1604b;
+    color: #e84500;
     padding: 1% 0 1% 0;
 }
