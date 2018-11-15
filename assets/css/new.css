@@ -1,0 +1,65 @@
+html {
+    height: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100%;
+    box-sizing: inherit;
+    position: relative;
+    background-image: url('../images/background.png');
+    background-size: 100%;
+    color: white;
+    text-align: center;
+    font-family: 'Spicy Rice', cursive;
+}
+
+
+img {
+    width: 50%;
+    height: auto;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#instructions,
+#gameTimer,
+#wins,
+#losses,
+#guessWord,
+#guesesLeft,
+#currentGuess {
+
+    color: #b1604b;
+}
+
+.buttonArea {
+    margin-bottom: 5%;
+}
+
+.gameButton {
+    padding: 10px 5px;
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'Spicy Rice', cursive;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gameButton:hover {
+    background-color: #b1604b;
+    border: none;
+    font-family: 'Spicy Rice', cursive;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    color: #b1604b;
+    padding: 1% 0 1% 0;
+}

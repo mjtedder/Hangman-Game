@@ -1,14 +1,15 @@
 body {
   font-family: 'Pangolin', cursive;
+  background-image: url("../images/background.png");
+  background-size: 800px 600px;
 }
+
 
 .header {
   margin-top: 200px;
 }
 
-.jumbotron {
-  float: left;
-}
+
 
 .box {
   text-align: center;
@@ -18,5 +19,6 @@ img {
   height: 200px;
   width: 200px;
 }
+ 
 
 
