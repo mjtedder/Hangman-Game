@@ -6,6 +6,17 @@ body {
   margin-top: 200px;
 }
 
+.jumbotron {
+  float: left;
+}
+
 .box {
   text-align: center;
 }
+
+img {
+  height: 200px;
+  width: 200px;
+}
+
+
