@@ -10,15 +10,14 @@ body {
     position: relative;
     background-image: url('../images/graygradient.jpg');
     background-size: 200%;
-    color: white;
+    color: #1e88dd;
     text-align: center;
-    font-family: 'Bangers', cursive;
-    font-size: 24px;
+    font-family: 'Press Start 2P', cursive;
 }
 
 
 img {
-    width: 50%;
+    width: 40%;
     height: auto;
     border-radius: 15px;
     margin-left: auto;
@@ -41,10 +40,11 @@ img {
 }
 
 .gameButton {
+    border-radius: 15%;
     padding: 10px 5px;
     margin: 10px;
     font-size: 20px;
-    font-family: 'Bangers', cursive;
+    font-family: 'Press Start 2P', cursive;
     margin-left: auto;
     margin-right: auto;
 }
@@ -52,7 +52,7 @@ img {
 .gameButton:hover {
     background-color: #e84500;
     border: none;
-    font-family: 'Bangers', cursive;
+    font-family: 'Press Start 2P', cursive;
 }
 
 footer {
