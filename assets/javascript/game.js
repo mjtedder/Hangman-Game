@@ -25,13 +25,16 @@ var guessCount = 9;
 // FUNCTIONS (These are bits of code that we will call upon to run when needed)
 // =========================================================================================
 
+function onLoad() {
+  // Prompt game introduction
+  confirm('Oh no, Princess Peach is in trouble!  Guess the word to help Mario save her!  Click Start Game button to play.');
+}
+
 // startGame()
 // Its how we we will start and restart the game.
 // (Note: It's not being run here. It's just being made for future use.)
 
 function startGame() {
-  // Prompt game introduction
-  confirm('Oh no, Princess Peach is in trouble!  Guess the word to help Mario save her!');
 
   // Reset the guesses back to 0.
   guessCount = 9;
@@ -139,7 +142,7 @@ function roundComplete() {
 
     // Update the win counter in the HTML & restart the game.
     document.getElementById("wins").innerHTML = wins;
-    startGame();
+    onLoad();
   }
 
   // If we've run out of guesses..
@@ -152,14 +155,14 @@ function roundComplete() {
     // Update the loss counter in the HTML.
     document.getElementById("losses").innerHTML = losses;
     // Restart the game.
-    startGame();
+    onLoad();
   }
 }
 // MAIN PROCESS (THIS IS THE CODE THAT CONTROLS WHAT IS ACTUALLY RUN)
 // ==================================================================================================
 
 // Starts the Game by running the startGame() function
-  startGame();
+  onLoad();
 
 // Then initiate the function for capturing key clicks.
   document.onkeyup = function(event) {
