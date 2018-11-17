@@ -30,6 +30,9 @@ var guessCount = 9;
 // (Note: It's not being run here. It's just being made for future use.)
 
 function startGame() {
+  // Prompt game introduction
+  confirm('Oh no, Princess Peach is in trouble!  Guess the word to help Mario save her!');
+
   // Reset the guesses back to 0.
   guessCount = 9;
 
