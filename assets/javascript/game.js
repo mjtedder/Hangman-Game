@@ -25,7 +25,19 @@ var guessCount = 9;
 // FUNCTIONS (These are bits of code that we will call upon to run when needed)
 // =========================================================================================
 
-function onLoad() {
+function countDown(secs, elem) {
+  var element = document.getElementById(elem);
+  element.innerHTML = 'Timer: ' + secs;
+  if(secs < 1) {
+    clearTimeout(timer)
+    alert("Time's Up!  Bowser got away with the princess!");
+    startGame();
+  }
+  secs--;
+  var timer = setTimeout('countDown('+secs+',"'+elem+'")',1000);
+}
+
+function loadWindow() {
   // Prompt game introduction
   confirm('Oh no, Princess Peach is in trouble!  Guess the word to help Mario save her!  Click Start Game button to play.');
 }
@@ -36,6 +48,8 @@ function onLoad() {
 
 function startGame() {
 
+  loadWindow();
+  countDown(50,'timer')
   // Reset the guesses back to 0.
   guessCount = 9;
 
@@ -162,8 +176,10 @@ function roundComplete() {
 // MAIN PROCESS (THIS IS THE CODE THAT CONTROLS WHAT IS ACTUALLY RUN)
 // ==================================================================================================
 
+// Wait for page to load before executing JavaScript
+window.onload = function() {
 // Starts the Game by running the startGame() function
-  onLoad();
+  loadWindow();
 
 // Then initiate the function for capturing key clicks.
   document.onkeyup = function(event) {
@@ -173,4 +189,5 @@ function roundComplete() {
   checkLetters(letterGuessed);
 // Runs the code after each round is done.
   roundComplete();
+  };
 };
