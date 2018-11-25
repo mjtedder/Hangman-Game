@@ -31,14 +31,16 @@ function countDown(secs, elem) {
   if(secs < 1) {
     clearTimeout(timer)
     alert("Time's Up!  Bowser got away with the princess!");
-    startGame();
+    gameIntro();
   }
   secs--;
   var timer = setTimeout('countDown('+secs+',"'+elem+'")',1000);
 }
 
-function loadWindow() {
-  // Prompt game introduction
+// gameIntro()
+// This function prompts the introduction window
+
+function gameIntro() {
   confirm('Oh no, Princess Peach is in trouble!  Guess the word to help Mario save her!  Click Start Game button to play.');
 }
 
@@ -47,9 +49,7 @@ function loadWindow() {
 // (Note: It's not being run here. It's just being made for future use.)
 
 function startGame() {
-
-  loadWindow();
-  countDown(50,'timer')
+  // countDown(50,'timer')
   // Reset the guesses back to 0.
   guessCount = 9;
 
@@ -79,7 +79,6 @@ function startGame() {
   // Print the initial blanks in console.
   console.log(blanksAndSuccesses);
 
-
   // Reprints the guessesLeft to 9
   document.getElementById("guessesLeft").innerHTML = guessCount;
 
@@ -93,6 +92,7 @@ function startGame() {
 // checkLetters() function
 // It's where we will do all of the comparisons for matches.
 // Again, it's not being called here. It's just being made for future use.
+
 function checkLetters(letter) {
 
   // This boolean will be toggled based on whether or not a user letter is found anywhere in the word.
@@ -123,6 +123,7 @@ function checkLetters(letter) {
     // Logging for testing.
     console.log(blanksAndSuccesses);
   }
+
   // If the letter doesn't exist at all..
   else {
     // ..then we add the letter to the list of wrong letters, and we subtract one of the guesses.
@@ -153,10 +154,8 @@ function roundComplete() {
     wins++;
     alert("Mama Mia! You win!");
 
-
     // Update the win counter in the HTML & restart the game.
     document.getElementById("wins").innerHTML = wins;
-    onLoad();
   }
 
   // If we've run out of guesses..
@@ -169,7 +168,7 @@ function roundComplete() {
     // Update the loss counter in the HTML.
     document.getElementById("losses").innerHTML = losses;
     // Restart the game.
-    onLoad();
+    startGame();
   }
 }
 
@@ -177,10 +176,10 @@ function roundComplete() {
 // ==================================================================================================
 
 // Wait for page to load before executing JavaScript
-window.onload = function() {
-// Starts the Game by running the startGame() function
-  loadWindow();
-
+document.addEventListener("DOMContentLoaded", function(event) {
+// Prompts game introduction window
+  gameIntro();
+})
 // Then initiate the function for capturing key clicks.
   document.onkeyup = function(event) {
 // Converts all key clicks to lowercase letters.
@@ -190,4 +189,3 @@ window.onload = function() {
 // Runs the code after each round is done.
   roundComplete();
   };
-};
