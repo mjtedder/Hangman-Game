@@ -2,13 +2,16 @@
 
 This repo contains a hangman-style word guessing game themed after Super Mario Bros.  It is built with simple JavaScript methods such as conditional statements, confirms, and event listeners.
 
+![image]
+(./assets/images/screenshot.png)
+
 ## Tools
 
 HTML5 | CSS3 | JavaScript
 
 ## Demo
 
-You can view this page at [Super Mario Hangman](https://mjtedder.github.io/Portfolio-1.0/)
+You can view this page at [Super Mario Hangman](https://mjtedder.github.io/Hangman-Game/)
 
 
 
